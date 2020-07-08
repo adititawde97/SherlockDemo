@@ -1,0 +1,59 @@
+Aditi Tawde
+
+
+Solution 
+import java.util.Scanner;
+
+public class SherlockDemo {
+
+	public static void main(String[] args) {
+
+		Scanner input= new Scanner(System.in);
+		
+		System.out.println("Provide the number of Test Cases:");
+		int testCases=Integer.parseInt(input.next());
+		String []pattern= new String[testCases];
+		String [] textString= new String[testCases];
+		for (int i=0; i< testCases;i++)
+		{
+			System.out.println("Provide the Pattern to search:");
+			pattern[i]=input.next();
+			
+			System.out.println("Provide the Text String to search into:");
+			textString[i]=input.next();
+		}
+		
+		
+		for(int i=0;i<testCases;i++) {
+		System.out.println(pattern[i]+"\t to Search in -->"+textString[i]);
+		}
+	
+	  
+		searchClue(pattern,textString,testCases);
+	}
+	
+
+	public static void searchClue(String []pattern, String []textString, int testCases)
+	{
+		for(int i=0;i<testCases;i++)
+		{
+			String revString=new StringBuilder(pattern[i]).reverse().toString();
+			if(textString[i].contains(pattern[i]))
+			{
+				System.out.println("YES");
+			}
+			else if(textString[i].contains(revString))
+			{
+				System.out.println("YES");
+			}
+			else {
+				System.out.println("NO");
+			}
+
+		}
+
+	}
+	
+	
+	
+}
